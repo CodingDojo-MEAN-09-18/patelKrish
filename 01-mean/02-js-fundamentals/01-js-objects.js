@@ -48,6 +48,5 @@ for(var key in users)
     {
         i = parseInt(val) + 1;
         console.log(i + " - " + users[key][val].last_name.toUpperCase() + ", " + users[key][val].first_name.toUpperCase() + " - " + (users[key][val].last_name + users[key][val].first_name).length)
-        a = 'foae'
     }
 }
