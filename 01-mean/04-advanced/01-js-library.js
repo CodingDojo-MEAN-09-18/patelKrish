@@ -3,52 +3,44 @@ var _ =
     map: function(arr,callback) 
     {
         //code here;
-        const newArr = [];
-
-        if (Array.isArray(arr)) 
-        { 
-            for (let i = 0; i < arr.length; i++) { newArr.push(callback(arr[i])); }
-    
-            return newArr;
-        }
-    
-        if (Object.prototype.toString.call(arr)) 
-        { 
-            for (let key in arr) 
-            { 
-                newArr.push(callback(arr[key])); 
-            }
-    
-            return newArr;
-        }
-    
-        return false;
+        for (let i = 0; i < arr.length; i++) { arr[i] = callback(arr[i]); }
     },
-    reduce: function() 
+    reduce: function(arr,callback,memo) 
     { 
         // code here;
+        let i = 0; 
+        if (!memo) {
+            memo = arr[0];
+            i = 1; // new starting point in the array
+        }
+
+        for (let index = i; index < arr.length; index++) { memo = callback(arr[index],memo); }
+
+        return memo; 
     },
-    find: function() 
+    find: function(arr,callback) 
     {   
         // code here;
+
+        // check through the array to find the matching value
+        for(let i = 0; i < arr.length; i++) { if(callback(arr[i])) { return arr[i]; } }
     },
-    filter: function() 
+    filter: function(arr,callback) 
     { 
         // code here;
+        let temp = [];
+
+        for(let i = 0; i < arr.length; i++) { if(callback(arr[i])) { temp.push(arr[i]); } }
+
+        return temp;
     },
     reject: function() 
     { 
         // code here;
+        let temp = [];
+
+        for(let i = 0; i < arr.length; i++) { if(!callback(arr[i])) { temp.push(arr[i]); } }
+
+        return temp;
     }
 }
-
-function reduce(arr,callback) 
-{
-      
-}
-
-// tests
-
-// MAP
-console.log(_.map([1,3,4,5], function (num) { return num * 3; }))                     // output: [3,9,12,15]
-console.log(_.map({one: 2, two: 3, three: 4}, function (num) { return num * 3; }))    // output: [6,9,12]
