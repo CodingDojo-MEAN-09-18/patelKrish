@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Survey Form</title>
+        <style>
+            div
+            {
+                width: 400px;
+            }
+            p 
+            {
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <fieldset>
+                <legend>Submitted Information</legend>                    
+                <table>
+                    <tr>
+                        <td><p>Name:</p></td>
+                        <td><p><%= context.name %></p></td>
+                    </tr>
+                    <tr>
+                        <td><p>Dojo Location:</p></td>
+                        <td><p><%= context.location %></p></td>
+                    </tr>
+                    <tr>
+                        <td><p>Favorite Language:</p></td>
+                        <td><p><%= context.language %></p></td>
+                    </tr>
+                    <tr>
+                        <td><p>Comment:</p></td>
+                        <td><p><%= context.comment %></p></td>
+                    </tr>
+                </table>
+                <button><a href="/">Go Back</a></button>
+            </fieldset>
+        </div>
+    </body>
+</html>
