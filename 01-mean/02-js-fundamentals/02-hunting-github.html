@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('.btn').click(function() {
+                    $.get("https://api.github.com/users/kpatel1293", displayName)
+
+                    function displayName(data) { 
+                        console.log(data['name']); 
+                        name = data['name'];
+
+                        $("h1").append(name);
+                    }
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <h1></h1>
+        <button class="btn">CLICK ME</button>
+    </body>
+</html>
