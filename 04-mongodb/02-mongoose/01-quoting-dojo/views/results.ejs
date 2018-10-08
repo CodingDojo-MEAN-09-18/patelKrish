@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Results</title>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Here are the awesome quotes!</legend>
+            <!-- list of quotes -->
+            <% for (const quote of quotes) { %>
+                <h4>"<%= quote.quote %>"</h4>
+                <blockquote>- <%= quote.name %></blockquote>
+            <% } %>
+        </fieldset>
+    </body>
+</html>
