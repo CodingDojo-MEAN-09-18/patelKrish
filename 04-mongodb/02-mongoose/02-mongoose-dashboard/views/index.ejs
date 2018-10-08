@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <style>
+            th{
+                padding-left: 8px;
+                padding-right: 8px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+            td{
+                padding-left: 8px;
+                padding-right: 8px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/animal/new">Add New Animal</a></li>
+            </ul>
+        </nav>
+        <main>
+            <table>
+                <thead>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Number of Legs</th>
+                    <th>Eats People</th>
+                    <th>Actions</th>
+                </thead>
+                <tbody>
+                    <% for (const animal of animals) { %>
+                        <tr>
+                            <td><%= animal.name %></td>
+                            <td><%= animal.age %></td>
+                            <td><%= animal.numLegs %></td>
+                            <td><%= animal.eatsPeople %></td>
+                            <td>
+                                <a href="/animal/info/<%=animal.id%>">information</a>
+                                <a href="/animal/edit/<%=animal.id%>">edit</a>
+                                <!-- <a href="/animal/destroy/<%=animal.id%>">delete</a> -->
+                                <form action="/animal/<%=animal.id%>/destroy" method="post">
+                                    <input type="submit" value="delete">
+                                </form>
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </main>
+    </body>
+</html>

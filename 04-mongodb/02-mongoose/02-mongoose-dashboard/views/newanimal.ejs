@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <style>
+            th{
+                border: 1px black solid;
+                padding-left: 8px;
+                padding-right: 8px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/animal/new">Add New Animal</a></li>
+            </ul>
+        </nav>
+        <main>
+            <fieldset>
+                <legend>New Animal</legend>
+                <form action="/animal" method="post">
+                    <div>
+                        <label for="name">Name: </label>
+                        <input type="text" name="name">
+                    </div>
+                    <div>
+                        <label for="age">Age: </label>
+                        <input type="number" name="age">
+                    </div>
+                    <div>
+                        <label for="numLegs">Number of Legs: </label>
+                        <input type="number" name="numLegs">
+                    </div>
+                    <div>
+                        <label for="eatsPeople">Eats People: </label>
+                        <input type="radio" value="false" name="eatsPeople">No
+                        <input type="radio" value="true" name="eatsPeople">Yes
+                    </div>
+                    <br>
+                    <button>Submit</button>
+                </form>
+            </fieldset>
+        </main>
+    </body>
+</html>

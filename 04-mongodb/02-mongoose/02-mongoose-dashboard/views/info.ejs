@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Information <%= animal.id %></title>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/animal/new">Add New Animal</a></li>
+            </ul>
+        </nav>
+        <main>
+            <fieldset>
+                <legend><%= animal.name %></legend>
+                <p><b>Age: </b> <%= animal.age %></p>
+                <p><b>Number of Legs: </b> <%= animal.numLegs %></p>
+                <p><b>Eats People: </b> <%= animal.eatsPeople %></p>
+                <br>
+                <a href="/animal/edit/<%= animal.id %>">Edit Animal</a>
+            </fieldset>
+        </main>
+    </body>
+</html>
