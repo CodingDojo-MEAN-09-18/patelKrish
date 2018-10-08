@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HOME</title>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/authors">Author</a>
+                </li>
+                <li>
+                    <a href="/books/new">Create Books</a>
+                </li>
+            </ul>
+        </nav>
+        <main>
+            <table>
+                <thead>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Pages</th>
+                    <th>Year</th>
+                    <th>Actions</th>
+                </thead>
+                <tbody>
+                    <% for (book of books) { %>
+                        <tr>
+                            <td><%= book.title %></td>
+                            <td><%= book.author.name %></td>
+                            <td><%= book.pages %></td>
+                            <td><%= book.year %></td>
+                            <td>FUTURE ACTIONS</td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </main>
+    </body>
+</html>

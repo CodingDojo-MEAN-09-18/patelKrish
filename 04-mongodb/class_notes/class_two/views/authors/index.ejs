@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HOME</title>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/authors/new">Create Authors</a>
+                </li>
+                <li>
+                    <a href="/books">Book</a>
+                </li>
+            </ul>
+        </nav>
+        <main>
+            <table>
+                <thead>
+                    <th>Name</th>
+                    <th>Is Alive</th>
+                    <th>Books</th>
+                    <th>Actions</th>
+                </thead>
+                <tbody>
+                    <% for (const author of authors) { %>
+                        <tr>
+                            <td><%= author.name %></td>
+                            <td><%= author.isAlive %></td>
+                            <td>
+                                <ul>
+                                    <% for (const book of author.books) { %>
+                                        <li><%= book.title %></li>
+                                    <% } %>
+                                </ul>
+                            </td>
+                            <td>FUTURE ACTIONS</td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </main>
+    </body>
+</html>
