@@ -51,41 +51,7 @@ const qoutesSchema = new Schema({
 const Quote = mongoose.model('Quote', qoutesSchema);
 
 // routes
-
-//...GET '/' - index
-app.get('/', function(request,response) {
-    console.log('inside the index page');
-    
-    response.render('index');
-})
-
-//...POST '/quotes' - form data for quotes
-app.post('/quotes', function(request,response) {
-    console.log('inside the quote post');
-
-    Quote.create(request.body)
-        .then(quote => {
-            console.log('create quote', quote);
-            
-            response.redirect('/quotes');
-        })
-        .catch(error => {
-            const errors = Object.keys(error.errors)
-                .map(key => error.errors[key].message);
-
-            console.log(errors);
-            
-            response.redirect('/');
-        });
-})
-
-//...GET '/quotes' - results
-app.get('/quotes', function(request,response) {
-    console.log('inside the quote page');
-
-    Quote.find({})
-        .then(quotes => response.render('results', { quotes }));
-})
+require('./server/config/routes.js')(app)
 
 // listen to port
 app.listen(port,() => console.log('listening to port number:', port));
