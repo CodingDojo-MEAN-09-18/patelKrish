@@ -1,39 +1,15 @@
 const mongoose = require('mongoose');
 const Quote = mongoose.model('Quote');
 
+const quotes = require('../controllers/quotes.js')
+
 module.exports = function(app) {
     //...GET '/' - index
-    app.get('/', function(request,response) {
-        console.log('inside the index page');
-        
-        response.render('index');
-    })
+    app.get('/', function(request,response) { quotes.index(request,response); })
 
     //...POST '/quotes' - form data for quotes
-    app.post('/quotes', function(request,response) {
-        console.log('inside the quote post');
-
-        Quote.create(request.body)
-            .then(quote => {
-                console.log('create quote', quote);
-                
-                response.redirect('/quotes');
-            })
-            .catch(error => {
-                const errors = Object.keys(error.errors)
-                    .map(key => error.errors[key].message);
-
-                console.log(errors);
-                
-                response.redirect('/');
-            });
-    })
+    app.post('/quotes', function(request,response) { quotes.create(request,response); })
 
     //...GET '/quotes' - results
-    app.get('/quotes', function(request,response) {
-        console.log('inside the quote page');
-
-        Quote.find({})
-            .then(quotes => response.render('results', { quotes }));
-    })
+    app.get('/quotes', function(request,response) { quotes.quote_all(request,response); })
 }
