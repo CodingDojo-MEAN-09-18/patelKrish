@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HOME</title>
+        <style>
+            * {
+                font-family: 'Courier New', Courier, monospace;
+            }
+            main {
+                background-color: aquamarine;
+                width: 475px;
+            }
+            button {
+                border: none;
+                padding: 8px;
+                color: white;
+                background-color: coral;
+                font-size: 12px;
+            }   
+        </style>
+    </head>
+    <body>
+        <h1>The Dojo Message Board</h1>
+        <hr>
+        <main>
+            <fieldset>
+                <legend>Write a Message</legend>
+                <form action="/message" method="post">
+                    <div>
+                        <label for="name">Name:</label>
+                        <br>
+                        <input type="text" name="name">
+                    </div>
+                    <div>
+                        <label for="message">Message:</label>
+                        <br>
+                        <textarea name="message" cols="60" rows="5"></textarea>
+                    </div>
+                    <button>Post Message</button>
+                </form>
+            </fieldset>
+
+            <!-- <p><%= msg %></p> -->
+
+            <% for(const m of msg) { %>
+                <p><b>Name:</b> <%= m.name %></p>
+                <p><b>Message:</b> <%= m.message %></p>
+                <p><b>Comment:</b> <%= m.comment %></p>
+                <blockquote>
+                    <form action="/comment/<%= m.id %>" method="post">
+                        <div>
+                            <label for="name">Name:</label>
+                            <br>
+                            <input type="text" name="name">
+                        </div>
+                        <div>
+                            <label for="comment">Message:</label>
+                            <br>
+                            <textarea name="comment" cols="55" rows="5"></textarea>
+                        </div>
+                        <button>Post Comment</button>
+                    </form>
+                </blockquote>
+            <% } %>
+
+        </main>
+    </body>
+</html>
