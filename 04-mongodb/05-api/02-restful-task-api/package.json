@@ -1,0 +1,17 @@
+{
+  "name": "restful-task-api",
+  "version": "1.0.0",
+  "description": "Using your new knowledge of 'Restful Routing', create an application with endpoints (routing rules) which offer CRUD operations for 'tasks'",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Krishna Patel",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.2"
+  }
+}
