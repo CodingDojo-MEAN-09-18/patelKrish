@@ -1,0 +1,59 @@
+<div class="main">
+  <div class="section">
+    <div class="box">
+      <h1>New Task</h1>
+      <form (submit)="postTask()" #form="ngForm">
+        <table>
+          <tr>
+            <td class="lbl"><label for="title">Title</label></td>
+            <td><input type="text" name="title" id="txtbox" [(ngModel)]="task.title"></td>
+          </tr>
+          <tr>
+            <td class="lbl"><label for="desc">Description</label></td>
+            <td><input type="text" name="desc" id="txtbox" [(ngModel)]="task.description"></td>
+          </tr>
+          <tr>
+            <td><button class="form-btn">Create</button></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+    <div class="box-out">
+      <div class="box">
+        <h1>Task List</h1>
+        <div class="task-box" *ngFor="let t of tasks">
+          <table>
+            <tr>
+              <td><h2>{{ t.title }}</h2></td>
+              <td><button class="edit left" (click)="getTaskByIDFromService(t._id)" >Edit</button></td>
+            </tr>
+            <tr>
+              <td><p>{{ t.description }}</p></td>
+              <td><button class="delete left" (click)="deleteTask(t._id)" >Delete</button></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="box">
+      <h1>Edit a Task</h1>
+      <form (submit)="updateTask(task.id)" #form="ngForm">
+        <table>
+          <tr>
+            <td class="lbl"><label for="title">Title</label></td>
+            <td><input type="text" name="title" id="txtbox" [(ngModel)]="task.title"></td>
+          </tr>
+          <tr>
+            <td class="lbl"><label for="desc">Description</label></td>
+            <td><input type="text" name="desc" id="txtbox" [(ngModel)]="task.description"></td>
+          </tr>
+          <tr>
+            <td><button class="form-btn">Edit</button></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>
