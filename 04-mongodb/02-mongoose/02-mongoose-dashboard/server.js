@@ -18,7 +18,7 @@ const app = express();
 
 // set views
 //...set views directory
-app.set('views',path.resolve('views'));
+app.set('views',path.resolve('client/views'));
 //..set views engine
 app.set('view engine','ejs');
 
@@ -111,7 +111,7 @@ app.post('/animal', function(request,response){
         })
         .catch(error => {
             const errors = Object.keys(error.errors)
-                .map(key => error.errors[keys].message)
+                .map(key => error.errors[key].message)
 
             console.log(errors);
             
