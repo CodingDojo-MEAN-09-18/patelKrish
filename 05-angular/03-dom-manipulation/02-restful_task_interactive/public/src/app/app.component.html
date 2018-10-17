@@ -5,14 +5,14 @@
     <button (click)="getTaskFromService()">Get All Tasks</button>
     <table>
       <tr *ngFor="let t of tasks">
-        <td>{{ t.title | json }}</td>
+        <td>{{ t.title }}</td>
         <td><button class="btn-show" (click)="getTaskByIDFromService(t._id)">Show</button></td>
       </tr>
     </table>
     <div class="show">
       <hr>
-      <p><b>{{ show.title | json }}</b></p>
-      <p>{{ show.description | json }}</p>
+      <p><b>{{ show.title }}</b></p>
+      <p>{{ show.description }}</p>
     </div>
   </div>
 </div>

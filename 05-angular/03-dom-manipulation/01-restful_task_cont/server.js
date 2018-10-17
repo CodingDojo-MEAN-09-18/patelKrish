@@ -81,36 +81,36 @@ app.post('/tasks', function(req, res){
     taskInstance.description = req.body.description;
     taskInstance.completed = req.body.completed;
 
-    taskInstance.save(function(err){
+    taskInstance.save(function(err,task){
         if(err){
             res.json({message: "Error", error: err})
         }
         else {
-            res.redirect('/tasks')
+            res.json({message: "Success", data: task})
         }
     })
 })
 
 // PUT: Update a Task by ID ('/tasks/:id')
 app.put('/tasks/:id', function(req,res){
-    Tasks.updateOne({_id: req.params.id}, req.body, function(err){
+    Tasks.updateOne({_id: req.params.id}, req.body, function(err,task){
         if(err){
             res.json({message: "Error", error: err})
         }
         else {
-            res.redirect('/tasks')
+            res.json({message: "Success", data: task})
         }
     })
 })
 
 // DELETE: Delete a Task by ID ('/tasks/:id')
 app.delete('/tasks/:id', function(req,res){
-    Tasks.deleteOne({_id: req.params.id}, function(err){
+    Tasks.deleteOne({_id: req.params.id}, function(err,task){
         if(err){
             res.json({message: "Error", error: err})
         }
         else {
-            res.redirect('/tasks')
+            res.json({message: "Success", data: task})
         }
     })
 })
