@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+    </head>
+    <body>
+        <!-- Title -->
+        <h1>Welcome to Quoting Dojo</h1>
+        
+        <!-- Form -->
+        <fieldset>
+            <legend>Quote</legend>
+            <form action="/quotes" method="POST">
+                <!-- name -->
+                <div>
+                    <label for="name">Your Name:</label>
+                    <input type="text" name="name">
+                </div>
+                <br>
+                <!-- quote -->
+                <div>
+                    <label for="quote">Your Quote: </label>
+                    <textarea name="quote" cols="30" rows="2"></textarea>
+                </div>
+                <br>
+                <!-- add quote btn -->
+                <button>Add my quote!</button>
+                <!-- skip quote btn -->
+                <button><a href="/quotes">Skip to quotes</a></button>
+            </form>
+        </fieldset>
+    </body>
+</html>
