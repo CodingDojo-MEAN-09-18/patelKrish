@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cats</title>
+    </head>
+    <body>
+        <h1>Details of Page for Cuddles</h1>
+        <h4>Favorite Food: <%= cat.fav_food %></h4>
+        <h4>Age: <%= cat.age %></h4>
+        <h4>Sleeping spots: </h4>
+        <% for (const c of cat.sleeping_spots) { %>
+            <p><%= c %></p>
+        <% } %>
+    </body>
+</html>
