@@ -1,10 +1,12 @@
-var express = require('express'); // load express module
-console.log('Express is loaded!');
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
 
-// invoke express
-var app = express();
-console.log('Express is invoked!');
+const port = process.env.PORT || 8000;
 
-app.use(express.static(__dirname + "/static"));
+const app = express();
 
-app.listen(8000, function () { console.log("listening on port 8000"); })
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.static(path.join(__dirname + '/static')));
+
+app.listen(port, () => console.log('listening to port :', port))
