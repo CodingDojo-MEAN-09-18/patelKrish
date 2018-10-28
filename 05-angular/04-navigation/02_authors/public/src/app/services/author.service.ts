@@ -28,7 +28,7 @@ export class AuthorService {
   }
 
   // update author (PUT)
-  updateAuthor(id, author: Author): Observable<Author> {
+  updateAuthor(id: number, author: Author): Observable<Author> {
     return this._http.put<Author>(`${this.base}/${id}`, author);
   }
 
