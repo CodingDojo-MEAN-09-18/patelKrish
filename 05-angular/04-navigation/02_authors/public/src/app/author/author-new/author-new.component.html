@@ -1,0 +1,11 @@
+<a [routerLink]="['/']" routerLinkActive="router-link-active" >Home</a>
+
+<fieldset>
+  <legend>Add a New Author</legend>
+  <form (submit)='onSubmit($event, form)' #form='ngForm'>
+    <div><label for="name">Name</label></div>
+    <div><input type="text" name="name" [(ngModel)]="author.name"></div>
+
+    <button>Submit</button>
+  </form>
+</fieldset>
