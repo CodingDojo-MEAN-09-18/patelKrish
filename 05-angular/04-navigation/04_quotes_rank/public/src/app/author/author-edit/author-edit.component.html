@@ -1,0 +1,17 @@
+<a [routerLink]="['/']" routerLinkActive="router-link-active"  >Home</a>
+
+<h3>Edit a quotable author:</h3>
+
+<fieldset>
+  <form (submit)='onSubmit($event, form)' #form='ngForm' >
+    <div>
+      <label for="name">Name</label>
+    </div>
+    <div>
+      <input type="text" name="name" value="{{author.name}}" [(ngModel)]="author.name">
+    </div>
+    <div>
+      <button (click)='onCancel($event)' >Cancel</button><button>Submit</button>
+    </div>
+  </form>
+</fieldset>

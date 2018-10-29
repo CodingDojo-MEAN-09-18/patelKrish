@@ -1,0 +1,17 @@
+<a [routerLink]="['/']" routerLinkActive="router-link-active"  >Home</a>
+
+<h3>Provide a quote by:</h3>
+
+<fieldset>
+  <form (submit)='onSubmit($event, form)' #form='ngForm' >
+    <div>
+      <label for="quote">Quote</label>
+    </div>
+    <div>
+      <input type="text" name="quote" [(ngModel)]="quotes.quote">
+    </div>
+    <div>
+      <button (click)='onCancel($event)' >Cancel</button><button>Submit</button>
+    </div>
+  </form>
+</fieldset>
