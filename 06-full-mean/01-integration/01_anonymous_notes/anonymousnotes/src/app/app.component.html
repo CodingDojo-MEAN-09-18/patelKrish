@@ -1,0 +1,16 @@
+<div class="main">
+  <h1>Anonymous Notes</h1>
+  <div class="note-form">
+    <form (submit)='onSubmit($event,form)' #form='ngForm' >
+      <label for="note">Note: </label>
+      <input type="text" name="note" [(ngModel)]="note.note" >
+      <button>Add Note</button>
+    </form>
+  </div>
+  <div class="notes-box">
+    <div class="notes" *ngFor="let note of notes">
+      <p class="date">Noted on: {{ note.createdAt | date: 'medium' }}</p>
+      <p class="note-txt">{{note.notes}}</p>
+    </div>
+  </div>
+</div>

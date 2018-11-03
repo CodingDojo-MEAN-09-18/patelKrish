@@ -1,0 +1,39 @@
+.main {
+  border: 1px firebrick solid;
+  /* width: 500px; */
+  padding: 25px;
+}
+
+.note-form {
+  border: 1px salmon solid;
+  padding: 25px;
+}
+
+.note-form form * {
+  margin: 5px;
+}
+
+.notes-box {
+  border: 1px salmon solid;
+  margin-top: 15px;
+  padding: 15px;
+}
+
+.notes {
+  border: 1px salmon solid;
+  padding: 10px;
+  margin: 5px;
+}
+
+.date {
+  text-align: right;
+}
+
+@media screen and (max-width: 500px) {
+  .date {
+    text-align: center;
+  }
+  .note-txt {
+    text-align: center;
+  }
+}
